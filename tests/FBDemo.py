@@ -3,7 +3,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 
-driver = webdriver.Chrome(executable_path="C:/Users/Harish/PycharmProjects/Demo_Fr_1/drivers/chromedriver.exe")
+driver = webdriver.Chrome()
+    #executable_path="C:/Users/Harish/PycharmProjects/Demo_Fr_1/drivers/chromedriver.exe")
 # driver.get("http://facebook.com")
 driver.get("http://www.facebook.com")
 # driver.get("facebook.com")  #error -Cannot navigate to invalid URL

@@ -5,6 +5,7 @@ from pages.homepage import HomePage
 from utils import constants as cs
 import allure
 import moment
+import os
 
 
 @pytest.mark.usefixtures("test_setup")
@@ -29,7 +30,7 @@ class TestLogin:
             home = HomePage(driver)
             home.clik_on_logout_link()
             x = driver.title
-            assert x == "actiTIME - Logi"
+            assert x == "actiTIME - Login"
         except AssertionError as error:
             print(error)
             cur_time=moment.now().strftime("%d-%m-%Y_%H-%M-%S")
@@ -37,7 +38,8 @@ class TestLogin:
             screenshot_name=test_name+"_"+cur_time
             allure.attach(self.driver.get_screenshot_as_png(), name=screenshot_name,
                           attachment_type=allure.attachment_type.PNG)
-            driver.get_screenshot_as_file("C:/Users/Harish/PycharmProjects/Demo_Fr_1/screenshots/"+screenshot_name+".png")
+            dir_path = os.path.dirname(os.path.realpath(__file__))
+            driver.get_screenshot_as_file(dir_path+"/screenshots/"+screenshot_name+".png")
             raise
         except:
             print("There is an error")
